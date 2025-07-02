@@ -18,10 +18,19 @@ class RegisterDto {
 }
 exports.RegisterDto = RegisterDto;
 __decorate([
+    (0, class_validator_1.IsNotEmpty)({ message: 'El nombre de usuario es obligatorio' }),
+    __metadata("design:type", String)
+], RegisterDto.prototype, "username", void 0);
+__decorate([
     (0, class_validator_1.IsEmail)(),
     (0, class_validator_1.Matches)(/@(gmail|hotmail|outlook|yahoo)\.com$/, {
         message: 'Solo se permiten emails de gmail, hotmail, outlook o yahoo',
     }),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)({ message: 'La contraseña es obligatoria' }),
+    (0, class_validator_1.MinLength)(6, { message: 'La contraseña debe tener al menos 6 caracteres' }),
+    __metadata("design:type", String)
+], RegisterDto.prototype, "password", void 0);
 //# sourceMappingURL=register.dto.js.map
