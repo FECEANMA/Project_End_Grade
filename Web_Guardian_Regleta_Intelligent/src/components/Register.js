@@ -18,6 +18,16 @@ const Register = () => {
 };
 
   const handleRegister = async () => {
+    if (!username || !password || !repeatPassword || !email) {
+  alert('Todos los campos son obligatorios');
+  return;
+}
+
+if (password.length < 6) {
+  alert('La contraseña debe tener al menos 6 caracteres');
+  return;
+}
+
     if (password !== repeatPassword) {
       alert('Las contraseñas no coinciden');
       return;
