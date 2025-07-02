@@ -7,7 +7,7 @@ git clone .............url..........
 ```bash
 npm install
 ```
-2. Instalar dependencias en los Dos Carpetas: Server y Web
+2. Instalar dependencias en las Dos Carpetas: Server y Web
 --------------------------------------------------------------------------------------------------------
 3. Archvio .env en la Carpeta: Server
 --------------------------------------------------------------------------------------------------------
