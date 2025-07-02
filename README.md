@@ -14,5 +14,5 @@ npm install
 ```bash
 npm run start
 ```
-4. En las Dos Carpetas: Server y Web
+4. Iniciar los Proyectos en las Dos Carpetas: Server y Web
 --------------------------------------------------------------------------------------------------------
