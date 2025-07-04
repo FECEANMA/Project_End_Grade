@@ -1,5 +1,5 @@
 // src/auth/auth.controller.ts
-import { Controller, Post, Body, Param, Get, Delete } from '@nestjs/common';
+import { Controller, Post, Body, Param, Get, Delete, Request } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from 'src/dto/register.dto';
 import { UseGuards } from '@nestjs/common';
@@ -29,5 +29,11 @@ getAllUsers() {
   @Delete('users/:id')
 deleteUser(@Param('id') id: string) {
   return this.authService.deleteUserById(id);
+}
+
+@UseGuards(AuthGuard('jwt'))
+@Delete('delete')
+deleteSelf(@Request() req) {
+  return this.authService.deleteUserById(req.user.userId); // `sub` viene del token
 }
 }

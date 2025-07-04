@@ -35,6 +35,9 @@ let AuthController = class AuthController {
     deleteUser(id) {
         return this.authService.deleteUserById(id);
     }
+    deleteSelf(req) {
+        return this.authService.deleteUserById(req.user.userId);
+    }
 };
 exports.AuthController = AuthController;
 __decorate([
@@ -66,6 +69,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "deleteUser", null);
+__decorate([
+    (0, common_2.UseGuards)((0, passport_1.AuthGuard)('jwt')),
+    (0, common_1.Delete)('delete'),
+    __param(0, (0, common_1.Request)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "deleteSelf", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])

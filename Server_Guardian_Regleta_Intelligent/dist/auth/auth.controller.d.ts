@@ -16,4 +16,7 @@ export declare class AuthController {
     deleteUser(id: string): Promise<{
         message: string;
     }>;
+    deleteSelf(req: any): Promise<{
+        message: string;
+    }>;
 }
