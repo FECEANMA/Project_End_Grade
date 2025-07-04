@@ -9,7 +9,7 @@ npm install
 ```
 2. Instalar dependencias en las Dos Carpetas: Server y Web
 --------------------------------------------------------------------------------------------------------
-3. Archvio .env en la Carpeta: Server
+3. Archvio .env en la Carpeta: Server (Pedir por WhatsApp)
 --------------------------------------------------------------------------------------------------------
 Server
 ```bash
