@@ -195,3 +195,30 @@
 .auth-container button:hover {
   background-color: #388e3c;
 }
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: white;
+}
+
+.header-right {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-left: 15px;
+  cursor: pointer;
+}

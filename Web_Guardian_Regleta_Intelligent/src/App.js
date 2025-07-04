@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Monitor from './components/Monitor';
 import OverloadHistory from './components/OverloadHistory';
 import './App.css'; // Importing CSS for styling
-import { FaTachometerAlt, FaHistory } from 'react-icons/fa'; // Icons for navigation
+import { FaTachometerAlt, FaHistory, FaUserCircle, FaCog, FaBell } from 'react-icons/fa'; // Icons for navigation
+import Settings from './components/Settings'; 
 import Login from './components/Login';
 import Register from './components/Register';
 
@@ -11,6 +12,7 @@ const App = () => {
   const [activeTab, setActiveTab] = useState('monitor');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
+  const [username, setUsername] = useState('');
 
    useEffect(() => {
     const token = localStorage.getItem('token');
@@ -30,26 +32,43 @@ const App = () => {
       </div>
     ) : (
       <div className="App">
-        <Login onLogin={() => setIsAuthenticated(true)} />
+        <Login onLogin={() => {
+  const token = localStorage.getItem('token');
+  setIsAuthenticated(true);
+  const payload = JSON.parse(atob(token.split('.')[1]));
+  setUsername(payload.username); // si guardaste el username en el token
+}} />
         <button className='delete-button' onClick={() => setShowRegister(true)}>¿No tienes Cuenta? Registrate, es Gratis</button>
       </div>
     );
   }
+  
 
   return (
     <div className="App">
       <header className="App-header">
-        <div className="delete-icon-block">
-          <button
-            className="delete-icon-button" onClick={handleLogout}>Cerrar sesión</button>
-        </div>
-        <h1>Guardian de Regleta Inteligente</h1>
-      </header>
+  <div className="header-left">
+    <FaUserCircle size={24} style={{ marginRight: '8px' }} />
+    <span>{username}</span>
+  </div>
+
+  <h1>Guardian de Regleta Inteligente</h1>
+
+  <div className="header-right">
+    <button className="icon-button" onClick={() => setActiveTab('notifications')}>
+      <FaBell />
+    </button>
+    <button className="icon-button" onClick={() => setActiveTab('settings')}>
+      <FaCog />
+    </button>
+  </div>
+</header>
 
       <main className="App-main">
-        {activeTab === 'monitor' && <Monitor />}
-        {activeTab === 'history' && <OverloadHistory />}
-      </main>
+  {activeTab === 'monitor' && <Monitor />}
+  {activeTab === 'history' && <OverloadHistory />}
+  {activeTab === 'settings' && <Settings onLogout={handleLogout} />}
+</main>
 
       <nav className="App-nav">
         <button
