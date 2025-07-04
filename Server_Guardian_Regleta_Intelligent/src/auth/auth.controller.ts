@@ -34,6 +34,6 @@ deleteUser(@Param('id') id: string) {
 @UseGuards(AuthGuard('jwt'))
 @Delete('delete')
 deleteSelf(@Request() req) {
-  return this.authService.deleteUserById(req.user.userId); // `sub` viene del token
+  return this.authService.deleteUserById(req.user.userId); 
 }
 }
