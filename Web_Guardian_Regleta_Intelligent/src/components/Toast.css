@@ -1,0 +1,46 @@
+/* src/components/Toast.css */
+.toast {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  width: auto;
+  padding: 15px 20px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .toast {
+    bottom: 50px;
+    left: 30px;
+  }
+}
+
+/* Tipos */
+.toast.success {
+  background-color: #4caf50;
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+.toast.info {
+  background-color: #2196f3;
+}
+
+/* Animaciones */
+.toast-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast-hide {
+  opacity: 0;
+  transform: translateX(150%);
+}
