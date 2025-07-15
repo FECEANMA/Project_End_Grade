@@ -42,5 +42,5 @@
 
 .toast-hide {
   opacity: 0;
-  transform: translateX(150%);
+  transform: translateY(150%);
 }
